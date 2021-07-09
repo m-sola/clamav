@@ -260,7 +260,7 @@ static void onas_handle_signals()
 	 * SIGFPE, SIGILL, SIGSEGV, or SIGBUS signal */
     sigdelset(&sigset, SIGFPE);
     sigdelset(&sigset, SIGILL);
-    sigdelset(&sigset, SIGSEGV);
+    //sigdelset(&sigset, SIGSEGV);
     sigdelset(&sigset, SIGINT);
     sigdelset(&sigset, SIGTERM);
 #ifdef SIGBUS
@@ -272,7 +272,7 @@ static void onas_handle_signals()
     sigfillset(&(act.sa_mask));
     sigaction(SIGUSR2, &act, NULL);
     sigaction(SIGTERM, &act, NULL);
-    sigaction(SIGSEGV, &act, NULL);
+    //sigaction(SIGSEGV, &act, NULL);
     sigaction(SIGINT, &act, NULL);
 }
 
