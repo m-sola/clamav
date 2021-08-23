@@ -503,6 +503,11 @@ cl_error_t cl_init(unsigned int initoptions)
 
     UNUSEDPARAM(initoptions);
 
+    /* Rust logging initialization */
+    if (!clrs_log_init()) {
+        cli_dbgmsg("rust logging initialization failed");
+    }
+
     cl_initialize_crypto();
 
 #ifdef HAVE_LTDL

@@ -164,6 +164,13 @@ void cli_infomsg(const cli_ctx *ctx, const char *str, ...)
     msg_callback(CL_MSG_INFO_VERBOSE, buff, buff + len, ctx ? ctx->cb_ctx : NULL);
 }
 
+/* intended for logging in rust modules */
+void cli_infomsg_simple(const char *str, ...)
+{
+    MSGCODE(buff, len, "LibClamAV info: ");
+    msg_callback(CL_MSG_INFO_VERBOSE, buff, buff + len, NULL);
+}
+
 void cli_dbgmsg_internal(const char *str, ...)
 {
     MSGCODE(buff, len, "LibClamAV debug: ");

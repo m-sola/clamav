@@ -713,6 +713,12 @@ void cli_infomsg(const cli_ctx *ctx, const char *fmt, ...) __attribute__((format
 void cli_infomsg(const cli_ctx *ctx, const char *fmt, ...);
 #endif
 
+#ifdef __GNUC__
+void cli_infomsg_simple(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+#else
+void cli_infomsg_simple(const char *fmt, ...);
+#endif
+
 void cli_logg_setup(const cli_ctx *ctx);
 void cli_logg_unsetup(void);
 
