@@ -788,7 +788,7 @@ static void handle_eval(struct tokens *tokens, size_t start, struct decode_resul
 {
     res->txtbuf.data = TOKEN_GET(&tokens->data[start], string);
 
-    if (start > token.cnt)
+    if (start + 1 >= tokens->cnt)
         return;
 
     if (res->txtbuf.data && tokens->data[start + 1].type == TOK_PAR_CLOSE) {
